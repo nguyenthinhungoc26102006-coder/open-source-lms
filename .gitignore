@@ -1,0 +1,37 @@
+
+# WordPress configuration and secrets
+wp-config.php
+.env
+.env.*
+!.env.example
+
+# Local development
+.local/
+.localwp/
+*.log
+*.sql.zip
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary and backup files
+*.tmp
+*.bak
+*~
+
+# WordPress uploads (keep generated LMS assets in assets/lms-assets)
+wp-content/uploads/*
+!wp-content/uploads/.gitkeep
+
+# Dependencies and caches
+node_modules/
+vendor/
+.cache/

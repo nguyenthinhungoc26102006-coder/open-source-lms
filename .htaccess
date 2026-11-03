@@ -1,0 +1,39 @@
+
+# ==========================================
+# G7 PROJECT - APACHE SECURITY CONFIGURATION
+# ==========================================
+
+# Disable directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^(wp-config\.php|\.htaccess|\.htpasswd|readme\.html|license\.txt)$">
+    Require all denied
+</FilesMatch>
+
+# Protect hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# WordPress security: prevent access to PHP files
+# inside wp-includes except required entry points.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+    RewriteRule ^wp-includes/js/tinymce/langs/.+\.php$ - [F,L]
+</IfModule>
+
+# Standard WordPress permalink rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteRule ^index\.php$ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule . /index.php [L]
+</IfModule>
