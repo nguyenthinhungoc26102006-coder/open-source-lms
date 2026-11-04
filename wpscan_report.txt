@@ -1,0 +1,870 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+                  WordPress Security Scanner
+                         Version 4.1.0
+                    An Automattic endeavor
+                    https://automattic.com
+_______________________________________________________________
+
+[+] URL: http://g7-wordpress.local/ [192.168.7.109]
+[+] Started: Tue Nov  3 23:16:38 2026
+[+] Command Line: wpscan --url http://g7-wordpress.local --enumerate vp,vt --plugins-detection passive --request-timeout 30 --max-threads 2 --format cli-no-colour -o /root/wpscan_report_final.txt
+[+] Hostname: kali
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entries:
+ |  - Server: nginx/1.26.1
+ |  - X-Powered-By: PHP/8.5.12
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] robots.txt found: http://g7-wordpress.local/robots.txt
+ | Interesting Entries:
+ |  - /wp-admin/
+ |  - /wp-admin/admin-ajax.php
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://g7-wordpress.local/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] The external WP-Cron seems to be enabled: http://g7-wordpress.local/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 7.1.4 identified (Latest, released on 2026-10-28).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://g7-wordpress.local/feed/, <generator>https://wordpress.org/?v=7.1.4</generator>
+ | Confirmed By: Rss Generator (Passive Detection)
+ |  - http://g7-wordpress.local/comments/feed/, <generator>https://wordpress.org/?v=7.1.4</generator>
+
+[+] WordPress theme in use: astra-child
+ | Location: http://g7-wordpress.local/wp-content/themes/astra-child/
+ | Style URL: http://g7-wordpress.local/wp-content/themes/astra-child/style.css?ver=1.0.0
+ | Style Name: Astra Child
+ | Style URI: https://wpastra.com/
+ | Description: Child Theme for Astra - G7 Project...
+ | Author: G7 Team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ | Confirmed By: Css Style In 404 Page (Passive Detection)
+ |
+ | Version: 1.0.0 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://g7-wordpress.local/wp-content/themes/astra-child/style.css?ver=1.0.0, Match: 'Version: 1.0.0'
+
+
+[+] tutor
+ | Location: http://g7-wordpress.local/wp-content/plugins/tutor/
+ | Latest Version: 4.2.0
+ | Last Updated: 2026-10-27 11:15am GMT (7 days ago, per WordPress.org)
+ | Active Installs: 100,000 (per WordPress.org)
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | [!] 100 vulnerabilities identified:
+ |
+ | [!] Title: Tutor LMS < 1.5.3 - Cross-Site Request Forgery (CSRF)
+ |     UUID: 5fde7375-01bc-435e-80a5-7dda0eb96acf
+ |     Fixed in: 1.5.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/5fde7375-01bc-435e-80a5-7dda0eb96acf
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8615
+ |      - https://www.getastra.com/blog/911/plugin-exploit/cross-site-request-forgery-in-tutor-lms-plugin/
+ |      - https://www.jinsonvarghese.com/cross-site-request-forgery-in-tutor-lms/
+ |
+ | [!] Title: Tutor LMS < 1.7.7 - SQL Injection via tutor_mark_answer_as_correct
+ |     UUID: d5a00322-7098-4f8d-8e5e-157b63449c17
+ |     Fixed in: 1.7.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/d5a00322-7098-4f8d-8e5e-157b63449c17
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24181
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.8.3 - SQL Injection via tutor_quiz_builder_get_answers_by_question
+ |     UUID: f74dfc52-46ba-41e3-994b-23115a22984f
+ |     Fixed in: 1.8.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/f74dfc52-46ba-41e3-994b-23115a22984f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24182
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.8.3 - SQL Injection via tutor_quiz_builder_get_question_form
+ |     UUID: 9b8da6b7-f1d6-4a7d-a621-4ca01e4b7496
+ |     Fixed in: 1.8.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/9b8da6b7-f1d6-4a7d-a621-4ca01e4b7496
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24183
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.7.7 - Unprotected AJAX including Privilege Escalation
+ |     UUID: 5e85917c-7a58-49cb-b8b3-05aa18ffff3e
+ |     Fixed in: 1.7.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/5e85917c-7a58-49cb-b8b3-05aa18ffff3e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24184
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.7.7 - SQL Injection via tutor_place_rating
+ |     UUID: 0cba5349-e916-43f0-a1fe-62cf73e352a2
+ |     Fixed in: 1.7.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/0cba5349-e916-43f0-a1fe-62cf73e352a2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24185
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.8.3 - SQL Injection via tutor_answering_quiz_question/get_answer_by_id
+ |     UUID: 5f5c0c6c-6f76-4366-b590-0aab557f8c60
+ |     Fixed in: 1.8.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/5f5c0c6c-6f76-4366-b590-0aab557f8c60
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24186
+ |      - https://www.wordfence.com/blog/2021/03/several-vulnerabilities-patched-in-tutor-lms-plugin/
+ |
+ | [!] Title: Tutor LMS < 1.8.8 - Authenticated Local File Inclusion
+ |     UUID: 20f3e63a-31d8-49a0-b4ef-209749feff5c
+ |     Fixed in: 1.8.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/20f3e63a-31d8-49a0-b4ef-209749feff5c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24242
+ |
+ | [!] Title: Tutor LMS < 1.9.2 - Authenticated Stored Cross-Site Scripting (XSS)
+ |     UUID: 9ef14cf1-1e04-4125-a296-9aa5388612f9
+ |     Fixed in: 1.9.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/9ef14cf1-1e04-4125-a296-9aa5388612f9
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24455
+ |
+ | [!] Title: Tutor LMS < 1.9.6 - Reflected Cross-Site Scripting
+ |     UUID: 7978b7dd-54ca-4a13-9bc3-3cf96ad93339
+ |     Fixed in: 1.9.6
+ |     Reference: https://wpscan.com/vulnerability/7978b7dd-54ca-4a13-9bc3-3cf96ad93339
+ |
+ | [!] Title: Tutor LMS < 1.9.9 - Multiple Admin+ Stored Cross-Site Scripting
+ |     UUID: e6cf694d-c4ae-4b91-97c0-a6bdbafc7d60
+ |     Fixed in: 1.9.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/e6cf694d-c4ae-4b91-97c0-a6bdbafc7d60
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24740
+ |
+ | [!] Title: Tutor LMS < 1.9.11 - Reflected Cross-Site Scripting
+ |     UUID: 19980b57-1954-4a29-b2c2-43eadf758ed3
+ |     Fixed in: 1.9.11
+ |     References:
+ |      - https://wpscan.com/vulnerability/19980b57-1954-4a29-b2c2-43eadf758ed3
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24873
+ |      - https://plugins.trac.wordpress.org/changeset/2615802/tutor
+ |
+ | [!] Title: Tutor LMS < 1.9.12 - Subscriber+ Stored Cross-Site Scripting
+ |     UUID: a9bca7a6-c409-41d4-995e-48fd0f8264a3
+ |     Fixed in: 1.9.12
+ |     References:
+ |      - https://wpscan.com/vulnerability/a9bca7a6-c409-41d4-995e-48fd0f8264a3
+ |      - https://plugins.trac.wordpress.org/changeset/2643821
+ |
+ | [!] Title: Tutor LMS < 1.9.12 - Reflected Cross-Site Scripting
+ |     UUID: 2d0c4872-a341-4974-926c-10b094a5d13c
+ |     Fixed in: 1.9.12
+ |     References:
+ |      - https://wpscan.com/vulnerability/2d0c4872-a341-4974-926c-10b094a5d13c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25017
+ |      - https://plugins.trac.wordpress.org/changeset/2643821
+ |
+ | [!] Title: Tutor LMS < 1.9.13 - Reflected Cross-Site Scripting
+ |     UUID: 3a9dbb3d-40d6-441a-a9b4-df9ae8c9e56b
+ |     Fixed in: 1.9.13
+ |     Reference: https://wpscan.com/vulnerability/3a9dbb3d-40d6-441a-a9b4-df9ae8c9e56b
+ |
+ | [!] Title: Tutor LMS < 2.0.9 - Reflected Cross-Site Scripting
+ |     UUID: 53077bd4-4e30-43a9-97f0-349135242395
+ |     Fixed in: 2.0.9
+ |     Reference: https://wpscan.com/vulnerability/53077bd4-4e30-43a9-97f0-349135242395
+ |
+ | [!] Title: Tutor LMS < 2.0.10 - Admin+ Stored Cross-Site Scripting
+ |     UUID: 98cd761c-7527-4224-965d-d34472b5c19f
+ |     Fixed in: 2.0.10
+ |     References:
+ |      - https://wpscan.com/vulnerability/98cd761c-7527-4224-965d-d34472b5c19f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2563
+ |
+ | [!] Title: Tutor LMS < 2.0.10 - Reflected Cross-Site Scripting
+ |     UUID: 503835db-426d-4b49-85f7-c9a20d6ff5b8
+ |     Fixed in: 2.0.10
+ |     References:
+ |      - https://wpscan.com/vulnerability/503835db-426d-4b49-85f7-c9a20d6ff5b8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0236
+ |
+ | [!] Title: Tutor LMS < 2.2.1 - Unauthenticated Access to Tutor LMS Lesson Resources via REST API
+ |     UUID: 3b6969a7-5cbc-4e16-8f27-5dde481237f5
+ |     Fixed in: 2.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/3b6969a7-5cbc-4e16-8f27-5dde481237f5
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3133
+ |      - https://plugins.trac.wordpress.org/browser/tutor/tags/2.2.0/classes/RestAPI.php#L253
+ |      - https://wordpress.org/plugins/tutor/
+ |      - https://www.youtube.com/watch?v=BnxbSu8W-yU
+ |
+ | [!] Title: Tutor LMS < 2.3.0 - Subscriber+ Stored Cross-Site Scripting
+ |     UUID: 1049e940-49b1-4236-bea2-c636f35c5647
+ |     Fixed in: 2.3.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/1049e940-49b1-4236-bea2-c636f35c5647
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4805
+ |
+ | [!] Title: Tutor LMS < 2.2.1 - Student+ SQL Injection
+ |     UUID: fb9c1224-5ed2-4a12-baff-dd2c43e80f56
+ |     Fixed in: 2.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/fb9c1224-5ed2-4a12-baff-dd2c43e80f56
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25800
+ |
+ | [!] Title: Tutor LMS < 2.2.0 - Unauthenticate SQL Injection
+ |     UUID: 294428d6-fb25-4f22-8054-e03d32793244
+ |     Fixed in: 2.2.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/294428d6-fb25-4f22-8054-e03d32793244
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25700
+ |
+ | [!] Title: Tutor LMS < 2.2.0 - Instructor+ SQL Injection
+ |     UUID: 51732802-4d48-4d19-a45f-b95cd0ff7c61
+ |     Fixed in: 2.2.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/51732802-4d48-4d19-a45f-b95cd0ff7c61
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25990
+ |
+ | [!] Title: Tutor LMS < 2.3.0 - Admin+ Stored XSS
+ |     UUID: de7d8179-1316-4d23-98e7-c1a77b749c96
+ |     Fixed in: 2.3.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/de7d8179-1316-4d23-98e7-c1a77b749c96
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49829
+ |      - https://patchstack.com/database/vulnerability/tutor/wordpress-tutor-lms-plugin-2-2-4-cross-site-scripting-xss-vulnerability
+ |
+ | [!] Title: Tutor LMS < 2.6.1 - Missing Authorization
+ |     UUID: 315036fc-711c-4bb8-9f98-1e40c2b85383
+ |     Fixed in: 2.6.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/315036fc-711c-4bb8-9f98-1e40c2b85383
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1133
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8a7c04a-1fa0-434d-8161-7a32cefb44c4
+ |
+ | [!] Title: Tutor LMS < 2.6.1 - Student+ HTML Injection via Q&A
+ |     UUID: 7f33fe29-1b90-4e68-a3a0-c2bf276f40c6
+ |     Fixed in: 2.6.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/7f33fe29-1b90-4e68-a3a0-c2bf276f40c6
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1128
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/22420c2d-788c-4577-ae54-7b48f6063f5d
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.6.2 - Authenticated (Subscriber+) SQL Injection
+ |     UUID: c8027b08-c4af-4f17-a58b-fee2309808b6
+ |     Fixed in: 2.6.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/c8027b08-c4af-4f17-a58b-fee2309808b6
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1751
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f9cee379-79f8-4a60-b1bb-ccab1e954512
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.6.2 - Cross-Site Request Forgery to Plugin Deactivation and Data Erase
+ |     UUID: 00ba773b-cd90-4da8-bff5-68fa38f6de1d
+ |     Fixed in: 2.6.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/00ba773b-cd90-4da8-bff5-68fa38f6de1d
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1503
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/050647a8-6743-46e4-b31c-0b5bd4a1007f
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.6.2 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Post Deletion
+ |     UUID: 262a1899-5bcd-4a2c-b7f3-b3c27cd2bb20
+ |     Fixed in: 2.6.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/262a1899-5bcd-4a2c-b7f3-b3c27cd2bb20
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1502
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/834c4ca9-7173-4c84-8287-9916ec72935d
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.7.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via 'tutor_instructor_list' Shortcode
+ |     UUID: b9aa35f5-6c95-47ea-8b88-a2e7131a5dfd
+ |     Fixed in: 2.7.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/b9aa35f5-6c95-47ea-8b88-a2e7131a5dfd
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3994
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/324fc401-04ca-4707-8727-b8c3a66f7fd6
+ |
+ | [!] Title: Tutor LMS < 2.7.0 - Missing Authorization to Unauthenticated Limited Options Update
+ |     UUID: c1f14a13-30e2-47d0-9192-95291b624b81
+ |     Fixed in: 2.7.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/c1f14a13-30e2-47d0-9192-95291b624b81
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3553
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8d4029e-07b0-4ceb-ae6e-11a3f7416ebc
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.7.1 - Authenticated (Instructor+) Insecure Direct Object Reference to Arbitrary Course Deletion
+ |     UUID: c07d6f97-37e2-4e46-841d-01966223c8a4
+ |     Fixed in: 2.7.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/c07d6f97-37e2-4e46-841d-01966223c8a4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4279
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/45d04643-e43a-4732-91bf-e4af7b622e33
+ |
+ | [!] Title: Tutor LMS < 2.7.1 - Authenticated (Instructor+) SQL Injection
+ |     UUID: fc5052df-e2f3-47f8-b471-75373082d13e
+ |     Fixed in: 2.7.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/fc5052df-e2f3-47f8-b471-75373082d13e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4318
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/9bbb3c65-f02c-4d6d-bd4e-b3232af5e21b
+ |
+ | [!] Title: Tutor LMS < 2.7.1 - Missing Authorization
+ |     UUID: d77d30dc-fc36-48a1-95d9-fc8f6e4994bc
+ |     Fixed in: 2.7.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/d77d30dc-fc36-48a1-95d9-fc8f6e4994bc
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4223
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/ce4c4395-6d1a-4d5f-885f-383e5c44c0f8
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.7.2 -Authenticated (Administrator+) SQL Injection
+ |     UUID: ff9a7414-8b8b-45ee-af6c-ab6c67167d49
+ |     Fixed in: 2.7.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/ff9a7414-8b8b-45ee-af6c-ab6c67167d49
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4902
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f00e8169-3b8f-44a0-9af2-e81777a913f8
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 2.7.2 - Authenticated (Instructor+) Insecure Direct Object Reference to Arbitrary Quiz Attempt Deletion
+ |     UUID: ca83fadf-b931-487e-b7eb-0b669c95a935
+ |     Fixed in: 2.7.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/ca83fadf-b931-487e-b7eb-0b669c95a935
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5438
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/00ec14d4-d97b-40b1-b61b-05e911f49bb0
+ |
+ | [!] Title: Tutor LMS < 2.7.2 - Authenticated (Admin+) Path Traversal
+ |     UUID: 49725821-077b-43d4-b62d-4616f67917fa
+ |     Fixed in: 2.7.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/49725821-077b-43d4-b62d-4616f67917fa
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37266
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/c0c293db-5526-4600-838a-6e88586926c4
+ |
+ | [!] Title: Tutor LMS < 2.7.3 - Authenticated (Tutor Instructor+) Stored Cross-Site Scripting
+ |     UUID: ec34a631-9b65-4ffb-97e1-a6f74ff1fa1c
+ |     Fixed in: 2.7.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/ec34a631-9b65-4ffb-97e1-a6f74ff1fa1c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37947
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/68394503-d989-40d8-b033-24c011294158
+ |
+ | [!] Title: Tutor LMS < 2.7.3 - Cross-Site Request Forgery
+ |     UUID: 34991a4d-7019-44c6-8e14-31f9b6508e35
+ |     Fixed in: 2.7.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/34991a4d-7019-44c6-8e14-31f9b6508e35
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39645
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/2e617d6f-c1cb-4cac-88e2-3142c1ea9fab
+ |
+ | [!] Title: Tutor LMS < 2.7.4 - Authenticated (Instructor+) Stored Cross-Site Scripting
+ |     UUID: d9ff72ee-a967-4d5c-a044-35cb051d1488
+ |     Fixed in: 2.7.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/d9ff72ee-a967-4d5c-a044-35cb051d1488
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43231
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/4dcb4afc-14e1-43ce-87c4-8f24f1a0d682
+ |
+ | [!] Title: Tutor LMS < 2.7.4 - Missing Authorization
+ |     UUID: d167c7ec-fd72-46ab-8d2d-24eb449273d1
+ |     Fixed in: 2.7.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/d167c7ec-fd72-46ab-8d2d-24eb449273d1
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43142
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/c82e24a3-8000-4aa5-953e-11415b94909b
+ |
+ | [!] Title: Tutor LMS < 2.7.3 - Authenticated (Administrator+) SQL Injection
+ |     UUID: 27db0416-f7ce-404d-9195-8cba71b3e06e
+ |     Fixed in: 2.7.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/27db0416-f7ce-404d-9195-8cba71b3e06e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43282
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/839b68e6-0462-4f88-ac13-ed4b69887d6b
+ |
+ | [!] Title: Tutor LMS < 2.7.5 - Cross-Site Request Forgery via 'addon_enable_disable'
+ |     UUID: 043d9057-a66a-40e4-93a2-cae01ddddc81
+ |     Fixed in: 2.7.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/043d9057-a66a-40e4-93a2-cae01ddddc81
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2919
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/992abd72-2a8e-4bda-94c2-4a7f88487906
+ |
+ | [!] Title: Tutor LMS < 2.7.7 - Unauthenticated SQL Injection via rating_filter
+ |     UUID: 75fc7f60-fd9f-4d67-a626-6e6bca29b35d
+ |     Fixed in: 2.7.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/75fc7f60-fd9f-4d67-a626-6e6bca29b35d
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-10400
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/bcf37d4e-e94a-4046-9949-c208e4e70197
+ |
+ | [!] Title: Tutor LMS < 2.7.7 - User Registration Setting Bypass to Unauthorized User Registration
+ |     UUID: c213b996-f550-46d3-a6d1-381ce775d8f0
+ |     Fixed in: 2.7.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/c213b996-f550-46d3-a6d1-381ce775d8f0
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-10393
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/bf8aa169-df51-46db-8c65-f1543d4f75f9
+ |
+ | [!] Title: Tutor LMS < 3.4.1 - Subscriber+ HTML Injection
+ |     UUID: 9de8dd76-fda1-4674-bc51-fd5d15c53776
+ |     Fixed in: 3.4.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/9de8dd76-fda1-4674-bc51-fd5d15c53776
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-32230
+ |      - https://patchstack.com/database/wordpress/plugin/tutor/vulnerability/wordpress-tutor-lms-plugin-3-4-0-html-injection-vulnerability
+ |
+ | [!] Title: Tutor LMS < 3.8.0 - Authenticated (Administrator+) SQL Injection
+ |     UUID: e28b3cbc-c60b-4b3c-bb96-f2fddffb7c41
+ |     Fixed in: 3.8.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/e28b3cbc-c60b-4b3c-bb96-f2fddffb7c41
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-58993
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/91ca027c-0483-44de-b19e-243ccb2c7b31
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.0 - Missing Authorization to Unauthenticated Payment Status Update
+ |     UUID: 47c9b7b6-bd6a-4bfe-8d25-75e8ee1b06a3
+ |     Fixed in: 3.9.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/47c9b7b6-bd6a-4bfe-8d25-75e8ee1b06a3
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-11564
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/26289a93-063b-469a-9d09-c286d76fce0c
+ |
+ | [!] Title: Tutor LMS < 3.9.0 - Missing Authorization to Sensitive Information Exposure
+ |     UUID: 0aa2cee5-14df-4713-9bc2-c2530bbf643b
+ |     Fixed in: 3.9.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/0aa2cee5-14df-4713-9bc2-c2530bbf643b
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6680
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/1b8d88e4-a9dc-4740-b836-99f730beefcb
+ |
+ | [!] Title: Tutor LMS < 3.9.4 - Missing Authorization to Authenticated (Subscriber+) Sensitive Information Exposure via tutor_order_details
+ |     UUID: fbc60ef3-f5db-4fe0-81ff-c6fbb8d225e8
+ |     Fixed in: 3.9.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/fbc60ef3-f5db-4fe0-81ff-c6fbb8d225e8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13679
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/0830d0c3-99c0-423e-99ab-f0c1cbec52d9
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.4 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Coupon Modification
+ |     UUID: 80719ff8-e59c-456f-a067-f5dab165ed57
+ |     Fixed in: 3.9.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/80719ff8-e59c-456f-a067-f5dab165ed57
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13628
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/46f71f7b-7326-47b6-a23a-68a40f5bb56b
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.4 - Missing Authorization to Authenticated (Subscriber+) Course Enrollment Bypass
+ |     UUID: d9ea4be1-21fb-48f8-9d86-d08f2d1b2ce1
+ |     Fixed in: 3.9.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/d9ea4be1-21fb-48f8-9d86-d08f2d1b2ce1
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13934
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/5de212c9-5c2e-4713-b1ce-022dd84520c3
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.4 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Course Completion
+ |     UUID: 040dc974-78ad-4bf1-8f7d-90e6054f1874
+ |     Fixed in: 3.9.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/040dc974-78ad-4bf1-8f7d-90e6054f1874
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13935
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/7b8b111a-9626-41f4-8a13-51f576af0257
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.5 - Missing Authorization to Authenticated (Subscriber+) Limited Attachment Deletion
+ |     UUID: 36a93fc6-ef79-4d83-a199-4bfa19b35f08
+ |     Fixed in: 3.9.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/36a93fc6-ef79-4d83-a199-4bfa19b35f08
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-0548
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/0e475e02-494a-4ad0-a83c-d027c3a32989
+ |
+ | [!] Title: Tutor LMS < 3.9.6 - Authenticated (Subscriber+) Information Disclosure in Coupon Details via 'tutor_coupon_details' AJAX Action
+ |     UUID: c9eb5296-8bdb-482a-bf65-40dbb1ed93d4
+ |     Fixed in: 3.9.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/c9eb5296-8bdb-482a-bf65-40dbb1ed93d4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-1371
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/7f5c5f64-a864-4ce1-9080-19f7c4418307
+ |
+ | [!] Title: Tutor LMS < 3.9.6 - Instructor+ Arbitrary Course Modification and Deletion via IDOR
+ |     UUID: d414eef8-4d0e-45a7-bb80-4b48e9e29a58
+ |     Fixed in: 3.9.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/d414eef8-4d0e-45a7-bb80-4b48e9e29a58
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-1375
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/4e95b32b-c050-41eb-8fce-461257420eb6
+ |
+ | [!] Title: Tutor LMS < 3.9.5 - Authenticated (Instructor+) Insecure Direct Object Reference
+ |     UUID: ff4a4e6f-69aa-4a62-9a92-58af39dc6fe7
+ |     Fixed in: 3.9.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/ff4a4e6f-69aa-4a62-9a92-58af39dc6fe7
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-47555
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/5849a9f6-715e-4ac8-a0f7-1cd0814fff58
+ |
+ | [!] Title: Tutor LMS < 3.9.7 - Unauthenticated SQL Injection via coupon_code
+ |     UUID: 2afc5413-c349-4744-8c91-38f8dbe75958
+ |     Fixed in: 3.9.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/2afc5413-c349-4744-8c91-38f8dbe75958
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13673
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/007df869-dacb-4b0a-9c98-50586934cdab
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.6 - Missing Authorization
+ |     UUID: 73c0a5db-f854-4bb4-904d-e0e8dfa7dff2
+ |     Fixed in: 3.9.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/73c0a5db-f854-4bb4-904d-e0e8dfa7dff2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-23799
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/24009534-3a57-4ed3-b841-72e87e2a6925
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.5 - Authenticated (Subscriber+) Insecure Direct Object Reference
+ |     UUID: 21996805-2e13-4e09-915d-d8d0ca4c54aa
+ |     Fixed in: 3.9.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/21996805-2e13-4e09-915d-d8d0ca4c54aa
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-32223
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/b6f7c4c8-210f-4bbb-8352-5c2e550e44c3
+ |
+ | [!] Title: Tutor LMS < 3.9.8 - Unauthenticated Arbitrary Billing Profile Overwrite via 'order_id'
+ |     UUID: 6eed410f-078c-4779-a928-f8c72e9a242a
+ |     Fixed in: 3.9.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/6eed410f-078c-4779-a928-f8c72e9a242a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-3360
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/7f365519-dd0a-4f39-880d-7216ce2f7d1e
+ |
+ | [!] Title: Tutor LMS < 3.9.8 - Missing Authorization to Authenticated (Subscriber+) Unauthorized Private Course Enrollment
+ |     UUID: d1d1a64e-7a2f-4a7b-97a1-09f7dc0a8b71
+ |     Fixed in: 3.9.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/d1d1a64e-7a2f-4a7b-97a1-09f7dc0a8b71
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-3358
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/0c173356-7228-4253-bb28-2c2e11af76fd
+ |
+ | [!] Title: Tutor LMS < 3.9.8 - Authenticated (Subscriber+) Insecure Direct Object Reference to Arbitrary Course Content Modification
+ |     UUID: 945117b7-cc6a-49d9-bf8f-a1f808a3de25
+ |     Fixed in: 3.9.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/945117b7-cc6a-49d9-bf8f-a1f808a3de25
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-3371
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f9cf0430-8577-449a-aefe-d7bf606fe2de
+ |
+ | [!] Title: Tutor LMS < 3.9.9 - Authenticated (Admin+) SQL Injection via 'date' Parameter
+ |     UUID: c239430b-304d-4f2d-88df-400e33c1b094
+ |     Fixed in: 3.9.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/c239430b-304d-4f2d-88df-400e33c1b094
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-6080
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/6dd041ff-a0a3-4d1f-83e0-6ec2a978e9cf
+ |
+ | [!] Title: Tutor LMS < 3.9.9 - Authenticated (Subscriber+) Arbitrary Course Content Manipulation via tutor_update_course_content_order
+ |     UUID: b1d4cb90-0b2d-4a57-93cc-477aff8a1117
+ |     Fixed in: 3.9.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/b1d4cb90-0b2d-4a57-93cc-477aff8a1117
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-5502
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f32ae42d-dd1f-41d7-8ae4-ddec56d78ae6
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.8 - Missing Authorization
+ |     UUID: 389459e2-3875-4738-b1d7-9f9246f91003
+ |     Fixed in: 3.9.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/389459e2-3875-4738-b1d7-9f9246f91003
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-40743
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/e4482f92-024d-402d-9cf3-c4709f23baf0
+ |
+ | [!] Title: Tutor LMS < 3.9.8 - Missing Authorization
+ |     UUID: ded45b9e-f850-4b3b-970a-c214d2e26952
+ |     Fixed in: 3.9.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/ded45b9e-f850-4b3b-970a-c214d2e26952
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-40740
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/6625dcea-13cc-4c08-9361-946638bf6678
+ |
+ | [!] Title: Tutor LMS < 3.9.10 - Insecure Direct Object Reference to Authenticated (Instructor+) Arbitrary Post Deletion via 'course' GET Parameter
+ |     UUID: 654f83f7-aa41-428a-8f53-6cf222dce429
+ |     Fixed in: 3.9.10
+ |     References:
+ |      - https://wpscan.com/vulnerability/654f83f7-aa41-428a-8f53-6cf222dce429
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-6965
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/55924ea3-373c-4297-a958-5670def1f6c0
+ |
+ | [!] Title: Tutor LMS < 3.9.12 - Authenticated (Administrator+) SQL Injection via 'data' Parameter
+ |     UUID: 29eb9a95-37d4-4e77-90d2-c0eed199314a
+ |     Fixed in: 3.9.12
+ |     References:
+ |      - https://wpscan.com/vulnerability/29eb9a95-37d4-4e77-90d2-c0eed199314a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-10736
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/1e193bb9-bb16-4a77-877b-fa0ab29a6c74
+ |
+ | [!] Title: Tutor LMS < 3.9.13 - Subscriber+ Arbitrary Auto-Approved Comment Creation
+ |     UUID: 93031a51-fd53-48a0-a420-0024bbdaf45b
+ |     Fixed in: 3.9.13
+ |     References:
+ |      - https://wpscan.com/vulnerability/93031a51-fd53-48a0-a420-0024bbdaf45b
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-12273
+ |
+ | [!] Title: Tutor LMS < 3.9.13 - Subscriber+ Arbitrary Quiz Attempt Modification via IDOR
+ |     UUID: ca99ea35-4bf8-4dc8-a817-79fb9fa1c5bd
+ |     Fixed in: 3.9.13
+ |     References:
+ |      - https://wpscan.com/vulnerability/ca99ea35-4bf8-4dc8-a817-79fb9fa1c5bd
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-12271
+ |
+ | [!] Title: Tutor LMS < 3.9.13 - Instructor+ Arbitrary Post Overwrite via IDOR
+ |     UUID: c3d98ead-a4f4-48fd-bf9c-4fa91c5681d7
+ |     Fixed in: 3.9.13
+ |     References:
+ |      - https://wpscan.com/vulnerability/c3d98ead-a4f4-48fd-bf9c-4fa91c5681d7
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-12274
+ |
+ | [!] Title: Tutor LMS < 3.9.13 - Subscriber+ Unauthorized Course Enrollment and Private Course Content Disclosure via Droip/Kirki Integration
+ |     UUID: fcd43a87-8721-4455-b014-ac81d53fc671
+ |     Fixed in: 3.9.13
+ |     References:
+ |      - https://wpscan.com/vulnerability/fcd43a87-8721-4455-b014-ac81d53fc671
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-12275
+ |
+ | [!] Title: Tutor LMS < 3.9.14 - Authenticated (Author+) Stored Cross-Site Scripting via Lesson Attachment Title
+ |     UUID: 95749a02-f2dd-4809-97cc-9dd08ddedc75
+ |     Fixed in: 3.9.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/95749a02-f2dd-4809-97cc-9dd08ddedc75
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-13443
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/7483762c-5356-4844-90a9-511d9ec48625
+ |
+ | [!] Title: Tutor LMS < 3.9.14 - Subscriber+ Paid Course Content Disclosure via Enrollment Check Bypass
+ |     UUID: 0da44ad7-a5a7-4559-b2ae-3b7f0b0ce1bf
+ |     Fixed in: 3.9.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/0da44ad7-a5a7-4559-b2ae-3b7f0b0ce1bf
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-14306
+ |      - https://youtu.be/S1vyMEGaCDw
+ |
+ | [!] Title: Tutor LMS < 4.0.0 - Subscriber+ Cross-Course Q&A Content Disclosure and Reply Injection
+ |     UUID: 8fa51eaf-5205-492c-bcf7-81136dbf12d4
+ |     Fixed in: 4.0.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/8fa51eaf-5205-492c-bcf7-81136dbf12d4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-14310
+ |
+ | [!] Title: Tutor LMS < 4.0.1 - Authenticated (Subscriber+) SQL Injection via Stored Quiz Answer Array
+ |     UUID: 4b2b7b15-0931-4fec-a3c3-52bb80cc6a53
+ |     Fixed in: 4.0.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/4b2b7b15-0931-4fec-a3c3-52bb80cc6a53
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-15022
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/8cd603aa-c4d4-488c-b134-6983240c3a18
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 3.9.14 - Unauthenticated Insecure Direct Object Reference
+ |     UUID: e030f562-9008-4c93-88fe-a9d92fce3900
+ |     Fixed in: 3.9.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/e030f562-9008-4c93-88fe-a9d92fce3900
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-57694
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/601ac722-a2d4-4dce-9cde-dd3f4c15416a
+ |
+ | [!] Title: Tutor LMS < 4.0.2 - Authenticated (Administrator+) SQL Injection via 'coupon_code' Parameter
+ |     UUID: 945df09f-c023-4076-acb7-55f35f706311
+ |     Fixed in: 4.0.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/945df09f-c023-4076-acb7-55f35f706311
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-15444
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/9d637d7b-7a47-40db-a931-ec7ca723dfab
+ |
+ | [!] Title: Tutor LMS < 4.0.6 - Instructor+ Cross-Instructor Private Course Disclosure via IDOR
+ |     UUID: fb006829-e298-4b22-9d62-293a3b917ccd
+ |     Fixed in: 4.0.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/fb006829-e298-4b22-9d62-293a3b917ccd
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-14187
+ |
+ | [!] Title: Tutor LMS < 4.0.6 - Instructor+ Arbitrary File Read via Video Path
+ |     UUID: 9f8361a9-d424-4346-9d92-6f27ab9261c9
+ |     Fixed in: 4.0.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/9f8361a9-d424-4346-9d92-6f27ab9261c9
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-19093
+ |
+ | [!] Title: Tutor LMS < 4.0.6 - Unauthenticated SQLi via 'offset' and 'item_per_page' Parameters
+ |     UUID: 8830ba91-c316-4823-90a8-0cf0e527468f
+ |     Fixed in: 4.0.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/8830ba91-c316-4823-90a8-0cf0e527468f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-19094
+ |
+ | [!] Title: Tutor LMS < 4.0.6 - Unauthenticated Arbitrary Zero-Argument Function Invocation via Template Variable Shadowing
+ |     UUID: da7fb4c7-6d07-4c96-bde2-95bca1797d56
+ |     Fixed in: 4.0.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/da7fb4c7-6d07-4c96-bde2-95bca1797d56
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-19092
+ |
+ | [!] Title: Tutor LMS < 4.0.8 - Subscriber+ PHP Object Injection via withdraw_method_field Parameter
+ |     UUID: 2427daf3-a48b-402b-9f50-e34049358bd2
+ |     Fixed in: 4.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/2427daf3-a48b-402b-9f50-e34049358bd2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-78175
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/d0077d56-11e7-4e74-abe0-63e81db67be3
+ |
+ | [!] Title: Tutor LMS 4.0.0 - < 4.0.8 - Subscriber+ Cross-Course Lesson Comment Disclosure
+ |     UUID: a02f2c69-69cf-46fa-b4cf-0cf990d71e57
+ |     Fixed in: 4.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/a02f2c69-69cf-46fa-b4cf-0cf990d71e57
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85572
+ |
+ | [!] Title: Tutor LMS 2.7.1 - < 4.0.8 - Read-Only API Key Privilege Escalation via REST Request Misclassification
+ |     UUID: ddbae988-37a2-4fb7-a813-bbc708f1f1c9
+ |     Fixed in: 4.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/ddbae988-37a2-4fb7-a813-bbc708f1f1c9
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85569
+ |
+ | [!] Title: Tutor LMS < 4.0.9 - Insecure Direct Object Reference to Authenticated (Subscriber+) Sensitive Information Exposure via 'student_id' Parameter
+ |     UUID: dab92930-80bf-4c95-9932-92330680e1de
+ |     Fixed in: 4.0.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/dab92930-80bf-4c95-9932-92330680e1de
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89333
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/244051ef-5357-4b16-b690-46c8fea56847
+ |
+ | [!] Title: Tutor LMS < 4.0.9 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Post Deletion via 'lesson_id' Parameter
+ |     UUID: 6fca975d-3d06-4cfd-b42c-80e2f0e72cb2
+ |     Fixed in: 4.0.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/6fca975d-3d06-4cfd-b42c-80e2f0e72cb2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-88944
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e23fcd0-62b4-460d-9b64-8adbf14bf820
+ |
+ | [!] Title: Tutor LMS < 4.0.9 - Reflected Cross-Site Scripting via 'back_url' and 'search' Parameters
+ |     UUID: 433e2789-f152-42f9-9a3e-c1170792ff08
+ |     Fixed in: 4.0.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/433e2789-f152-42f9-9a3e-c1170792ff08
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89081
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/dcffa961-f670-494d-874c-50538038b915
+ |
+ | [!] Title: Tutor LMS < 4.0.8 - Authenticated (Custom+) Insecure Direct Object Reference to Arbitrary Quiz Question/Answer Modification and Deletion via 'payload' Parameter
+ |     UUID: 690df4e2-56b8-4640-a9aa-68ef3cce5db0
+ |     Fixed in: 4.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/690df4e2-56b8-4640-a9aa-68ef3cce5db0
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-18439
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/6d07c82d-262a-4ac1-9ee5-7ef4d025f66f
+ |
+ | [!] Title: Tutor LMS 4.0.5 - 4.1.0 - Instructor+ Arbitrary Post Reparenting via IDOR
+ |     UUID: 3c4ce27a-527a-416f-b1c8-d40ca5f65974
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/3c4ce27a-527a-416f-b1c8-d40ca5f65974
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85571
+ |
+ | [!] Title: Tutor LMS < 4.1.1 - Unauthenticated Stored Cross-Site Scripting
+ |     UUID: 663adfc0-83c3-4868-b725-cf5d1662b65e
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/663adfc0-83c3-4868-b725-cf5d1662b65e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-42702
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/4ce64a1f-0af9-475b-80a4-87d35a947c2e
+ |
+ | [!] Title: Tutor LMS < 4.1.1 - Unauthenticated Tutor Page Force-Publish and Content Overwrite
+ |     UUID: e25ac9a8-a29d-4573-9d04-402a14515fb7
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/e25ac9a8-a29d-4573-9d04-402a14515fb7
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-96537
+ |
+ | [!] Title: Tutor LMS < 4.1.1 - Reflected Cross-Site Scripting via 'tab' Parameter
+ |     UUID: dcab967e-d7b9-4bf6-8032-a69a96611b3a
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/dcab967e-d7b9-4bf6-8032-a69a96611b3a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-100193
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/4322fce1-0403-4458-82e3-7d374ab724c9
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution <= 4.1.3 - Authenticated (Subscriber+) Race Condition
+ |     UUID: aeb7e0ea-0ce5-48f9-a26b-4161508cd4e5
+ |     References:
+ |      - https://wpscan.com/vulnerability/aeb7e0ea-0ce5-48f9-a26b-4161508cd4e5
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-42698
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/238be5d8-8987-4ab0-ae8c-b07794d55bbe
+ |
+ | [!] Title: Tutor LMS < 4.0.9 - Authenticated (Subscriber+) Reflected DOM-Based Cross-Site Scripting via 'redirect_url' Parameter
+ |     UUID: f2a11c7d-622b-4d57-a3c4-02a5349e85a0
+ |     Fixed in: 4.0.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/f2a11c7d-622b-4d57-a3c4-02a5349e85a0
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-88963
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/f39a9570-a352-45f3-8644-2de2c1c709d2
+ |
+ | [!] Title: Tutor LMS < 4.1.1 - Authenticated (Subscriber+) Stored Cross-Site Scripting via display_name Parameter
+ |     UUID: b8591b64-1380-424e-a395-0eb4ba627da3
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/b8591b64-1380-424e-a395-0eb4ba627da3
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-93681
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/3ff5cff8-ecca-4cde-b3f6-09ee49afea25
+ |
+ | [!] Title: Tutor LMS < 4.1.1 - Insecure Direct Object Reference to Authenticated (Author+) Arbitrary Course Modification and Ownership Takeover via 'ID' Parameter
+ |     UUID: 88bcccbe-0f97-4369-95dd-eb2ff8b7c9b9
+ |     Fixed in: 4.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/88bcccbe-0f97-4369-95dd-eb2ff8b7c9b9
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-92715
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/12f093bd-5230-4103-b571-80543c1b43cf
+ |
+ | [!] Title: Tutor LMS – eLearning and online course solution < 4.1.3 - Authenticated (Subscriber+) Stored Cross-Site Scripting
+ |     UUID: 2a69380e-7a5d-49d3-94df-2e1a51e47718
+ |     Fixed in: 4.1.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/2a69380e-7a5d-49d3-94df-2e1a51e47718
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111407
+ |      - https://www.wordfence.com/threat-intel/vulnerabilities/id/464d7191-4afd-48c4-8d2e-655ee7375ff1
+ |
+ | [!] Title: Tutor LMS 1.6.4 - 4.1.3 - Subscriber+ Quiz Answer Key Disclosure
+ |     UUID: 797ac2aa-50f8-4abd-8ec0-96254b1fe13c
+ |     Fixed in: 4.2.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/797ac2aa-50f8-4abd-8ec0-96254b1fe13c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85570
+ |
+ | The version could not be determined.
+[i] 1 plugin(s) Identified.
+[i] No themes Found.
+[+] WPScan DB API OK
+ | Plan: free
+ | Requests Done (during the scan): 5
+ | Requests Remaining: 15
+[+] Finished: Tue Nov  3 23:17:28 2026
+[+] Requests Done: 700
+[+] Cached Requests: 12
+[+] Most response codes received: 502: 434, 404: 241, 200: 22, 403: 2, 500: 1
+[!] Too many server errors (5xx). The target may be experiencing issues or blocking requests
+[+] Data Sent: 156.853 KB
+[+] Data Received: 1002.217 KB
+[+] Memory used: 303.957 MB
+[+] Elapsed time: 00:00:49
